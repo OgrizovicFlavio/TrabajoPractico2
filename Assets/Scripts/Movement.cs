@@ -1,19 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    public float speed = 0.01f;
-    public float angle = 10f;
+    [Header("Movement")]
+    [SerializeField] private float movementSpeed = 0.01f;
+    [SerializeField] private KeyCode moveUp = KeyCode.W;
+    [SerializeField] private KeyCode moveDown = KeyCode.S;
+    [SerializeField] private KeyCode moveRight = KeyCode.D;
+    [SerializeField] private KeyCode moveLeft = KeyCode.A;
 
-    public KeyCode moveUp = KeyCode.W;
-    public KeyCode moveDown = KeyCode.S;
-    public KeyCode moveRight = KeyCode.D;
-    public KeyCode moveLeft = KeyCode.A;
-    public KeyCode rotateRight = KeyCode.E;
-    public KeyCode rotateLeft = KeyCode.Q;
-    public KeyCode randomColor = KeyCode.R;
+    [Header("Rotation")]
+    [SerializeField] private float rotationAngle = 10f;
+    [SerializeField] private KeyCode rotateRight = KeyCode.E;
+    [SerializeField] private KeyCode rotateLeft = KeyCode.Q;
+
+    [Header("Change Color")]
+    [SerializeField] private KeyCode randomColor = KeyCode.R;
 
     private SpriteRenderer spriteRenderer;
 
@@ -24,47 +26,88 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
+            Move();
+            Rotate();
+            ChangeColor();
+
+    }
+
+    private void Move()
+    {
         Vector3 pos = transform.position;
-
-        if (Input.GetKeyDown(rotateRight))
-        {          
-            transform.Rotate(0,0, -angle);
-        }
-
-        if (Input.GetKeyDown(rotateLeft))
-        {
-            transform.Rotate(0, 0, angle);
-        }
 
         if (Input.GetKey(moveUp))
         {
-            pos.y += speed;
+            pos.y += movementSpeed * Time.deltaTime;
         }
 
         if (Input.GetKey(moveDown))
         {
-            pos.y -= speed;
+            pos.y -= movementSpeed * Time.deltaTime;
         }
 
         if (Input.GetKey(moveRight))
         {
-            pos.x += speed;
+            pos.x += movementSpeed * Time.deltaTime;
         }
 
         if (Input.GetKey(moveLeft))
         {
-            pos.x -= speed;
-        }
-
-        if (Input.GetKeyUp(randomColor))
-        {
-            float red = Random.Range(0,1.0f);
-            float green = Random.Range(0, 1.0f);
-            float blue = Random.Range(0, 1.0f);
-
-            spriteRenderer.color = new Color(red, green, blue);
+            pos.x -= movementSpeed * Time.deltaTime;
         }
 
         transform.position = pos;
+    }
+
+    private void Rotate()
+    {
+        if (Input.GetKeyDown(rotateRight))
+        {
+            transform.Rotate(0, 0, rotationAngle);
+        }
+
+        if (Input.GetKeyDown(rotateLeft))
+        {
+            transform.Rotate(0, 0, -rotationAngle);
+        }
+    }
+    
+    private void ChangeColor()
+    {
+        if (Input.GetKeyUp(randomColor))
+        {
+            float red = Random.Range(0, 1.0f);
+            float green = Random.Range(0, 1.0f);
+            float blue = Random.Range(0, 1.0f);
+            float alpha = Random.Range(0, 1.0f);
+
+            spriteRenderer.color = new Color(red, green, blue, alpha);
+        }
+    }
+
+    public void SetMovementSpeed(float newSpeed)
+    {
+        movementSpeed = newSpeed;
+    }
+
+    public float GetMovementSpeed()
+    {
+        return movementSpeed;
+    }
+
+    public void SetRotationAngle(float newAngle)
+    {
+        if (newAngle < 0)
+        {
+            return;
+        }
+        rotationAngle = newAngle;
+        if (rotationAngle >= 360f)
+            rotationAngle -= 360f;
+    }
+
+    public float GetRotationAngle ()
+    {
+        return rotationAngle;
     }
 }
