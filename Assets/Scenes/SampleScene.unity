@@ -1162,6 +1162,8 @@ GameObject:
   - component: {fileID: 373808888}
   - component: {fileID: 373808887}
   - component: {fileID: 373808889}
+  - component: {fileID: 373808891}
+  - component: {fileID: 373808890}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Untagged
@@ -1253,10 +1255,34 @@ MonoBehaviour:
   moveDown: 274
   moveRight: 275
   moveLeft: 276
+--- !u!114 &373808890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 373808885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49668a268cd40d748abe07c8e1e5acd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  randomColor: 114
+--- !u!114 &373808891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 373808885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c13b13a2d60625a4087e367654498b2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   rotationAngle: 10
   rotateRight: 101
   rotateLeft: 113
-  randomColor: 114
 --- !u!1 &435535355
 GameObject:
   m_ObjectHideFlags: 0
@@ -2857,6 +2883,8 @@ GameObject:
   - component: {fileID: 1393231849}
   - component: {fileID: 1393231848}
   - component: {fileID: 1393231850}
+  - component: {fileID: 1393231852}
+  - component: {fileID: 1393231851}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Untagged
@@ -2948,10 +2976,34 @@ MonoBehaviour:
   moveDown: 115
   moveRight: 100
   moveLeft: 97
+--- !u!114 &1393231851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1393231846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49668a268cd40d748abe07c8e1e5acd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  randomColor: 114
+--- !u!114 &1393231852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1393231846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c13b13a2d60625a4087e367654498b2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   rotationAngle: 10
   rotateRight: 101
   rotateLeft: 113
-  randomColor: 114
 --- !u!1 &1423263539
 GameObject:
   m_ObjectHideFlags: 0
