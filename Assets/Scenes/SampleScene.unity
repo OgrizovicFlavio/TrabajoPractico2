@@ -182,7 +182,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backButtonCredits: {fileID: 1693163345}
-  creditsPanel: {fileID: 120561157}
   mainMenuPanel: {fileID: 1488554380}
 --- !u!1 &171870078
 GameObject:
@@ -1268,6 +1267,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   randomColor: 114
+  spriteRenderer: {fileID: 0}
 --- !u!114 &373808891
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2742,7 +2742,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 245, y: -69.405975}
-  m_SizeDelta: {x: 470, y: 108.33334}
+  m_SizeDelta: {x: 470, y: 108.333336}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1301828804
 MonoBehaviour:
@@ -2935,7 +2935,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: df4fda44cfb531947bcea0c54b7c55c2, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
@@ -2989,6 +2989,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   randomColor: 114
+  spriteRenderer: {fileID: 0}
 --- !u!114 &1393231852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3339,7 +3340,6 @@ MonoBehaviour:
   textSpeedPlayer1: {fileID: 171870080}
   textSpeedPlayer2: {fileID: 206134063}
   backButtonSettings: {fileID: 2061883623}
-  settingsPanel: {fileID: 1614646806}
   mainMenuPanel: {fileID: 1488554380}
   player1: {fileID: 1393231850}
   player2: {fileID: 373808889}

@@ -6,7 +6,6 @@ public class UICredits : MonoBehaviour
     [Header("Buttons")]
     [SerializeField] private Button backButtonCredits;
     [Header("Panels")]
-    [SerializeField] private GameObject creditsPanel;
     [SerializeField] private GameObject mainMenuPanel;
 
     private void Awake()
@@ -26,7 +25,7 @@ public class UICredits : MonoBehaviour
 
     private void OnBackButtonCreditsClicked()
     {
-        creditsPanel.SetActive(false);
+        gameObject.SetActive(false);
         mainMenuPanel.SetActive(true);
     }
 }

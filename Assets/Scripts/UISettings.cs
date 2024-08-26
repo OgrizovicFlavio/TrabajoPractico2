@@ -13,7 +13,6 @@ public class UISettings : MonoBehaviour
     [Header("Buttons")]
     [SerializeField] private Button backButtonSettings;
     [Header("Panels")]
-    [SerializeField] private GameObject settingsPanel;
     [SerializeField] private GameObject mainMenuPanel;
     [Header("Players")]
     [SerializeField] private Movement player1;
@@ -52,7 +51,7 @@ public class UISettings : MonoBehaviour
 
     private void OnBackButtonSettingsClicked()
     {
-        settingsPanel.SetActive(false);
+        gameObject.SetActive(false);
         mainMenuPanel.SetActive(true);
     }
 }
