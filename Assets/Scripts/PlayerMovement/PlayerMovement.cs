@@ -1,17 +1,17 @@
 using UnityEngine;
 
-public class Movement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
     [Header("Movement")]
     [SerializeField] private float movementSpeed;
     [SerializeField] private KeyCode moveUp = KeyCode.W;
     [SerializeField] private KeyCode moveDown = KeyCode.S;
-    [SerializeField] private KeyCode moveRight = KeyCode.D;
-    [SerializeField] private KeyCode moveLeft = KeyCode.A;
+    //[SerializeField] private KeyCode moveRight = KeyCode.D;
+    //[SerializeField] private KeyCode moveLeft = KeyCode.A;
 
     void Update()
     {
-            Move();
+       Move();
     }
 
     private void Move()
@@ -28,16 +28,6 @@ public class Movement : MonoBehaviour
             pos.y -= movementSpeed * Time.deltaTime;
         }
 
-        if (Input.GetKey(moveRight))
-        {
-            pos.x += movementSpeed * Time.deltaTime;
-        }
-
-        if (Input.GetKey(moveLeft))
-        {
-            pos.x -= movementSpeed * Time.deltaTime;
-        }
-
         transform.position = pos;
     }
 
@@ -50,4 +40,17 @@ public class Movement : MonoBehaviour
     {
         return movementSpeed;
     }
+
+    /* Movimiento en eje X
+    
+    if (Input.GetKey(moveRight))
+        {
+            pos.x += movementSpeed * Time.deltaTime;
+        }
+
+        if (Input.GetKey(moveLeft))
+        {
+            pos.x -= movementSpeed * Time.deltaTime;
+        }
+    */
 }

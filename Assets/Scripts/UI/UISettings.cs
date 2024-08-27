@@ -15,8 +15,8 @@ public class UISettings : MonoBehaviour
     [Header("Panels")]
     [SerializeField] private GameObject mainMenuPanel;
     [Header("Players")]
-    [SerializeField] private Movement player1;
-    [SerializeField] private Movement player2;
+    [SerializeField] private PlayerMovement player1;
+    [SerializeField] private PlayerMovement player2;
 
     private void Awake()
     {
