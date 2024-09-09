@@ -5,63 +5,36 @@ public class UIMainMenu : MonoBehaviour
 {
     [Header("Buttons")]
     [SerializeField] private Button playButton;
-    [SerializeField] private Button settingsButton;
-    [SerializeField] private Button creditsButton;
+    [SerializeField] private Button optionsButton;
     [SerializeField] private Button exitButton;
-    [Header("Panels")]
-    [SerializeField] private GameObject mainPanel;
-    [SerializeField] private GameObject settingsPanel;
-    [SerializeField] private GameObject creditsPanel;
 
+    [Header("Panels")]
+    [SerializeField] private GameObject mainMenuPanel;
+    [SerializeField] private GameObject optionsPanel;
     private void Awake()
     {
         playButton.onClick.AddListener(OnPlayButtonClicked);
-        settingsButton.onClick.AddListener(OnSettingsButtonClicked);
-        creditsButton.onClick.AddListener(OnCreditsButtonClicked);
+        optionsButton.onClick.AddListener(OnOptionsButtonClicked);
         exitButton.onClick.AddListener(OnExitButtonClicked);
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape) && !creditsPanel.activeSelf && !settingsPanel.activeSelf)
-        {
-            if (!mainPanel.activeSelf)
-            {
-                mainPanel.SetActive(true);
-                Time.timeScale = 0;
-            }
-            else
-            {
-                mainPanel.SetActive(false);
-                Time.timeScale = 1;
-            }
-        }
     }
 
     private void OnDestroy()
     {
         playButton.onClick.RemoveListener(OnPlayButtonClicked);
-        settingsButton.onClick.RemoveListener(OnCreditsButtonClicked);
-        creditsButton.onClick.RemoveListener(OnCreditsButtonClicked);
+        optionsButton.onClick.RemoveListener(OnExitButtonClicked);
         exitButton.onClick.RemoveListener(OnExitButtonClicked);
     }
 
     private void OnPlayButtonClicked()
     {
-        mainPanel.SetActive(false);
+        mainMenuPanel.SetActive(false);
         Time.timeScale = 1;
     }
 
-    private void OnSettingsButtonClicked()
+    private void OnOptionsButtonClicked()
     {
-        mainPanel.SetActive(false);
-        settingsPanel.SetActive(true);
-    }
-
-    private void OnCreditsButtonClicked()
-    {
-        mainPanel.SetActive(false);
-        creditsPanel.SetActive(true);
+        mainMenuPanel.SetActive(false);
+        optionsPanel.SetActive(true);
     }
 
     private void OnExitButtonClicked()
