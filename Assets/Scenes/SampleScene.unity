@@ -1573,7 +1573,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 125
+  m_Mass: 200
   m_LinearDrag: 10
   m_AngularDrag: 10
   m_GravityScale: 0
@@ -4837,7 +4837,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 100
+  m_Mass: 200
   m_LinearDrag: 10
   m_AngularDrag: 10
   m_GravityScale: 0
@@ -6260,13 +6260,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1777250570}
+  - component: {fileID: 1777250571}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1777250570
 Transform:
   m_ObjectHideFlags: 0
@@ -6282,6 +6283,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1777250571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1777250569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f7f0d08415acb54693cbb0d39f5d4d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obstaclePrefab: {fileID: -4867341333021677052, guid: 4e73297fa5c3ccc448eb092862e3e1de, type: 3}
+  timeToSpawn: 3
 --- !u!1 &1826244524
 GameObject:
   m_ObjectHideFlags: 0

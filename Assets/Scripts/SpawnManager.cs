@@ -1,23 +1,31 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SpawnManager : MonoBehaviour // Este script va a ser para los Power Ups. Cambiar nombres y ajustar funcionalidad.
 {
 
-    [SerializeField] private GameObject obstaclePrefab;
+    [SerializeField] private Obstacle obstaclePrefab;
     [SerializeField] private float timeToSpawn;
 
+    private List <Obstacle> obstacles = new List<Obstacle>();
     private float totalTime;
-    private GameObject obstacle;
 
     private void Start()
     {
+        for (int i = 0; i < 10; i++)
+        {
+            Obstacle obstacle = Instantiate(obstaclePrefab, Vector3.zero, Quaternion.identity); //Lo paso como la posicion del nuevo obstáculo.
+            obstacles.Add(obstacle);
+            obstacle.gameObject.SetActive(false);
+        }
         SetRandomTimeToSpawn();
         totalTime = 0;
     }
     void Update()
     {
+        if (!GameManager.isGameOn)
+            return;
+
         totalTime += Time.deltaTime;
         if (totalTime > timeToSpawn)
         {
@@ -29,13 +37,34 @@ public class SpawnManager : MonoBehaviour // Este script va a ser para los Power
 
     private void SpawnObstacle()
     {
-        Vector2 randomPosition = new Vector2(Random.Range(-2f, 2f), Random.Range(-2f, 2f)); //Creo un vector random (x,y).
-
-        GameObject obstacle = Instantiate(obstaclePrefab, randomPosition, Quaternion.identity); //Lo paso como la posicion del nuevo obstáculo.
-
-        float destroyTime = Random.Range(3f, 7f); //Calculo entre 3 y 7 s el tiempo para que se destruya.
-
-        Destroy(obstacle, destroyTime); //Se destruye el objeto
+        Vector2 randomPosition;
+        bool isBlockedPosition = false;
+        float radius = 1f;
+        do
+        {
+            isBlockedPosition = false;
+            randomPosition = new Vector2(Random.Range(-2f, 2f), Random.Range(-2f, 2f));
+            for (int i = 0; i < obstacles.Count; i++)
+            {
+                if (obstacles[i].gameObject.activeSelf)
+                {
+                    float distance = Vector3.Distance(randomPosition, obstacles[i].transform.position);
+                    if(distance < radius * 2)
+                    {
+                        isBlockedPosition = true;
+                        break;
+                    }
+                }
+            }
+        } while (isBlockedPosition);
+        for (int i = 0;i < obstacles.Count; i++)
+        {
+            if (!obstacles[i].gameObject.activeSelf)
+            {
+                obstacles[i].TurnOn(randomPosition);
+                break;
+            }
+        }
 
     }
 

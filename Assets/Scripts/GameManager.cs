@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Transform paddle2Transform;
     [SerializeField] private Transform ballTransform;
 
-    private bool isGameOn = false;
+    public static bool isGameOn = false;
 
     void Update()
     {
